@@ -42,6 +42,21 @@
 		sensors = <&left_encoder>;
 	};
 
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        joystick_split: joystick_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+    };
+
+    joystick_listener: joystick_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&joystick_split>;
+    };
+
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
@@ -227,10 +242,3 @@ zephyr_udc0: &usbd {
     status = "okay";
 };
 
-nice_view_spi: &spi0 {
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-1 = <&spi0_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
-};
