@@ -35,7 +35,6 @@ CONFIG_ZMK_BLE=y
 #EXT POWER
 CONFIG_ZMK_EXT_POWER=y
 
-# Analog joystick
+# Analog joystick / pointing
 CONFIG_ADC=y
-CONFIG_ANALOG_INPUT=y
 CONFIG_ZMK_POINTING=y
