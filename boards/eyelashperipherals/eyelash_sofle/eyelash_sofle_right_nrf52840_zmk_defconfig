@@ -39,3 +39,11 @@ CONFIG_ZMK_EXT_POWER=y
 CONFIG_ADC=y
 CONFIG_ANALOG_INPUT=y
 CONFIG_ZMK_POINTING=y
+
+# Diagnostic: read raw trackpoint mV over USB serial (REMOVE once tuned).
+# Pairs with the zmk-usb-logging snippet on the right-half build in build.yaml.
+# The right half ships with USB off, so enable it for the diagnostic build.
+CONFIG_ZMK_USB=y
+CONFIG_ANALOG_INPUT_LOG_LEVEL_DBG=y
+CONFIG_ANALOG_INPUT_LOG_DBG_RAW=y
+CONFIG_ANALOG_INPUT_LOG_DBG_REPORT=y
